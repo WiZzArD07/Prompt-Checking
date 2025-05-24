@@ -1,0 +1,34 @@
+# Default configuration for the prompt checker
+
+# Risk threshold (0.0 to 1.0)
+risk_threshold: 0.7
+
+# Pattern definitions
+patterns:
+  - regex: "ignore.*previous.*instructions"
+    description: "Attempt to ignore previous instructions"
+    weight: 0.8
+
+  - regex: "you.*are.*now.*(?:dan|dyn|d4n)"
+    description: "DAN-like jailbreak attempt"
+    weight: 0.9
+
+  - regex: "bypass.*(?:safety|restrictions|filters)"
+    description: "Attempt to bypass safety measures"
+    weight: 0.85
+
+  - regex: "act.*as.*(?:hack|exploit|jailbreak)"
+    description: "Attempt to act as a hacker or exploiter"
+    weight: 0.75
+
+  - regex: "generate.*(?:malware|virus|exploit)"
+    description: "Attempt to generate harmful code"
+    weight: 0.95
+
+  - regex: "pretend.*to.*be.*(?:hack|exploit|jailbreak)"
+    description: "Attempt to pretend to be a hacker"
+    weight: 0.7
+
+  - regex: "ignore.*(?:ethics|morals|safety)"
+    description: "Attempt to ignore ethical guidelines"
+    weight: 0.8 
